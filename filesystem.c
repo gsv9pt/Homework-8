@@ -165,8 +165,8 @@ while (cur != NULL){  // goes through list
     else{
     pre->next = nextn;  //skip over cur
     }
-free((void *)cur->name); // free mem
-free(cur);
+ 
+free(cur); // free mem
 
 return nextn;// return node in removed one's position
 }
@@ -236,8 +236,8 @@ file_node *lfile = dir->files;
          temp2 = temp2->next;
          }
        }
-free((void *)cur->name);   //free dir_node structure
-free(cur);
+   
+free(cur); //free dir_node structure
 
 return nextn;  // node that replaces cur
 }
