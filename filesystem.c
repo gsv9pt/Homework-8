@@ -42,11 +42,10 @@ return NULL;
 
 
 dir_node *cur;   // declares pointer for current directory
-file_node *fp = (file_node *)node; // casts access to parent file
-cur = ((file_node *)node)->parent; // gets parent of node
+cur = ((dir_node *)node)->parent;     // reads parent and stroes into cur
 
-if (cur == NULL) // parent null then input is directory
-    cur = cur->parent;
+if (cur == NULL)
+        return (dir_node *)node; // parent null then input is directory
 
 while (cur && cur->parent != NULL){  //follows parent until highest level
 cur = cur ->parent;
