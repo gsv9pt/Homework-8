@@ -202,16 +202,16 @@ while (cur){                  // go through subdirs, when cur equals subdir remo
      dir_node *lsub = dir->subdirs;
          
          if (!lsub){
-         dir->subdirs = cur->subdirs;
+         dir->subdirs = cur->subdirs;      
          }
          else{
-              while (lsub->next){
+              while (lsub->next){      // keep going to end of the list 
               lsub = lsub->next;
               }
               lsub->next = cur->subdirs;
          }
 
-         dir_node *temp = cur->subdirs;
+         dir_node *temp = cur->subdirs;     // update parent pointer for each subdir that was moved 
          while (temp){
          temp->parent = dir;
          temp = temp->next;
@@ -219,7 +219,7 @@ while (cur){                  // go through subdirs, when cur equals subdir remo
        }
 
 if (cur->files){
-file_node *lfile = dir->files;
+file_node *lfile = dir->files;                // moves all files from subdir to parent dir
          if (!lfile){
          dir->files = cur->files;
          }
@@ -230,7 +230,7 @@ file_node *lfile = dir->files;
               lfile->next = cur->files;
          }
 
-         file_node *temp2 = cur->files;
+         file_node *temp2 = cur->files;             // update parent poniter
          while (temp2){
          temp2->parent = dir;
          temp2 = temp2->next;
